@@ -1,1 +1,233 @@
 White Blood Cells Interactive lecture for dental students.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>White Blood Cells</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      margin: 0;
+      overflow: hidden;
+    }
+    .slideshow-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+    .slide {
+      display: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .slide.active {
+      display: block;
+      opacity: 1;
+    }
+    .caption {
+      position: absolute;
+      bottom: 40px;
+      width: 100%;
+      text-align: center;
+      font-size: 1.5em;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+    .controls {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    button {
+      background: #444;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    input[type=range] {
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slideshow-container">
+    <div class="slide active" style="background-image: url('https://i.makeagif.com/media/5-04-2017/LjOavi.gif');" data-caption="(WBCs) or leucocytes are so named since they are colourless in contrast to RBC."></div>
+    <div class="slide" style="background-image: url('https://media1.tenor.com/images/f28f43ed94eb48be39e6a2c62deefd9b/tenor.gif?itemid=16865536');" data-caption="These are nucleated cells and play an important role in the defence mechanism of the body."></div>
+    <div class="slide" style="background-image: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXVjMnh3dWYzdHhuZWcybWloOXFleDdrMTYxbHY4eWFlb3FlNDQ3dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cjq16MB86AcR27h4IR/giphy.gif');" data-caption="These are granulocytes and"></div>
+    <div class="slide" style="background-image: url('https://as2.ftcdn.net/v2/jpg/05/88/04/91/1000_F_588049122_DdseWinCrFBHJv1VZUWhHSu2I0C9ZsBK.jpg');" data-caption="agranulocytes (non-granulocytes)."></div>
+    <div class="slide" style="background-image: url('https://static2.bigstockphoto.com/7/5/4/large1500/457619001.jpg');" data-caption="The WBCs with granules in their cytoplasm are called granulocytes."></div>
+	<div class="slide" style="background-image: url('https://tse2.mm.bing.net/th/id/OIP.M3xdYj7UpHVZSvgylz_EPwHaF7?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="Neutrophils. They contain granules which take both acidic and basic stain."></div>
+	<div class="slide" style="background-image: url('https://tse4.mm.bing.net/th/id/OIP.-dh-Dzr4krwtx_390g7FeQHaE8?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="Eosinophils. They contain granules which take acidic stain."></div>
+	<div class="slide" style="background-image: url('https://tse1.explicit.bing.net/th/id/OIP.4unGYx8Bq2s_9KalTccc0gHaHO?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="Basophils. They contain granules which take basic stain."></div>
+	<div class="slide" style="background-image: url('https://www.shutterstock.com/image-vector/vector-set-white-blood-cells-260nw-1384575215.jpg');" data-caption="White blood cells which do not contain granules in their cytoplasm are called agranulocytes."></div>
+	<div class="slide" style="background-image: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGV3MDlyd2VxYXdvbzVpcDl2dGpqNnVvbTg0empyaWgwYzZkMDA0dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/B3sg86FYRJfrVM374g/giphy.gif');" data-caption="These are of two types:  Lymphocytes and"></div>
+	<div class="slide" style="background-image: url('https://www.emmepilab.com/images/composizione-monociti.jpg');" data-caption="Monocytes."></div>
+	<div class="slide" style="background-image: url('https://image.slidesharecdn.com/rbccountandwbccount-181008143248/75/RBC-count-and-WBC-count-13-2048.jpg');" data-caption="Total leucocyte count (TLC) varies with age."></div>
+	<div class="slide" style="background-image: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDEycm5jbWY0bmtjdXU3MGRwejU4YXB6bXIzMDk4aWF5dXdwa2M2NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vFzGKvFeSdYBAdxjgO/giphy.gif');" data-caption="Adults: 4000–11,000/mm3 of blood."></div>
+	<div class="slide" style="background-image: url('https://s2.dmcdn.net/v/A_6xv1VtHrED6WQCM/x720');" data-caption="Differential and absolute leucocyte count"></div>
+	<div class="slide" style="background-image: url('https://media.cheggcdn.com/media/4bc/4bc13b03-597e-40b3-811c-43414a0e3af7/image.png');" data-caption="The DLC determines if there is an increase or decrease in a particular type of leucocyte."></div>
+	<div class="slide" style="background-image: url('https://myhematology.com/wp-content/uploads/2024/03/CML-leukocytosis.jpg');" data-caption="Leucocytosis refers to increase in total WBC count above 11,000/mm3."></div>
+	<div class="slide" style="background-image: url('https://healthsea.com/wp-content/uploads/2023/11/leukocytosis-what-is-types-causes-amp-symptoms-082195.jpg');" data-caption="Physiological causes of leucocytosis: Age, Exercise, After food intake, Mental stress, Pregnancy, Exposure to low temperature also causes leucocytosis"></div>
+	<div class="slide" style="background-image: url('https://media0.giphy.com/media/8lsNyZVWcpZ2o/200.gif');" data-caption="Pathological causes of leucocytosis: Acute bacterial infections especially by the pyogenic organisms"></div>
+	<div class="slide" style="background-image: url('https://thumbs.dreamstime.com/z/vein-artery-rupture-cut-blood-hemorrhage-d-rendering-internal-bleeding-exit-112861678.jpg');" data-caption="Acute haemorrhage, Burns, Postoperative period, Tuberculosis, Glandular fever"></div>
+	<div class="slide" style="background-image: url('https://saudedia.com/wp-content/uploads/2022/01/leucopenia.jpg');" data-caption="Leucopenia refers to decrease in the total WBC count below 4000/mm3."></div>
+	<div class="slide" style="background-image: url('https://i.ytimg.com/vi/N55ZtNjMsQg/maxresdefault.jpg');" data-caption="Causes of leucopenia: Infections by the non-pyogenic bacteria, especially typhoid fever and paratyphoid fever."></div>
+	<div class="slide" style="background-image: url('https://media4.giphy.com/media/dVuyBgq2z5gVBkFtDc/giphy.gif');" data-caption="Viral infections, such as influenza, smallpox, mumps, etc."></div>
+	<div class="slide" style="background-image: url('https://o.quizlet.com/dt8R1lkJHYleWXqxQ3b.Og.gif');" data-caption="Protozoal infections"></div>
+	<div class="slide" style="background-image: url('https://media.giphy.com/media/qVz9kfCZRsUyk/giphy.gif');" data-caption="Starvation and malnutrition."></div>
+	<div class="slide" style="background-image: url('https://blogs.ugto.mx/rea/wp-content/uploads/sites/71/2022/01/Captura-de-Pantalla-2022-01-21-a-las-13.26.51.png');" data-caption="Aplasia of bone marrow."></div>
+	<div class="slide" style="background-image: url('https://media.tenor.com/pPhkGRL4-iAAAAAC/focus15gi-fs-the-constant-gardner.gif');" data-caption="Bone marrow depression due to: Drugs such as chloromycetin and cytotoxic drugs used in malignant diseases."></div>
+	<div class="slide" style="background-image: url('https://i.gifer.com/Ac8x.gif');" data-caption="Repeated exposure to X-rays or radiations, Chemical poisons like arsenic, dinitrophenol and antimony."></div>
+	<div class="slide" style="background-image: url('https://www.shutterstock.com/shutterstock/photos/2393402833/display_1500/stock-vector-stages-of-granulopoiesis-vector-neutrophil-maturation-hemocytoblast-myeloid-progenitor-2393402833.jpg');" data-caption="The development of granulocytes through various stages is called myeloid series."></div>
+	<div class="slide" style="background-image: url('https://www.researchgate.net/publication/43097715/figure/fig1/AS:216473269215233@1428622658434/monocyte-macrophage-lineage-All-cells-from-the-monocyte-macrophage-lineage-appear-to.png');" data-caption="Development of monocytes through various stages is called monocyte–macrophage series."></div>
+	<div class="slide" style="background-image: url('https://th.bing.com/th/id/R.695a4d025f6568d737a59a136ca743ee?rik=kozOEluExBOesA&riu=http%3a%2f%2fslidetodoc.com%2fpresentation_image_h2%2f3e8fea0e54537d176797db005f8f8a5e%2fimage-36.jpg&ehk=m9VCtpofhQdK5R8UV2Cx59x%2fryAByB0LPZuxuK8xE5I%3d&risl=&pid=ImgRaw&r=0');" data-caption="In humans, the bone marrow and thymus form the primary lymphopoietic organs,"></div>
+	<div class="slide" style="background-image: url('https://th.bing.com/th/id/R.07cb7ffda3cd9cc63322e351f6df73ca?rik=udy3q9W%2fLjDQpQ&riu=http%3a%2f%2fimage.slidesharecdn.com%2flyphoidorgansd3ppt-140805041302-phpapp02%2f95%2flymphoid-organs-ppt-9-638.jpg%3fcb%3d1407212074&ehk=b3hUYpCXTSNqJpag0EQIscG%2flNbttFOQxna9Nf7bFIU%3d&risl=&pid=ImgRaw&r=0');" data-caption="where lymphoid stem cells undergo spontaneous division independent of antigenic stimulation."></div>
+	<div class="slide" style="background-image: url('https://static.wixstatic.com/media/46d532_fcfd16e5a37449b2a783573773f461ba~mv2.jpg/v1/fill/w_820,h_459,al_c,q_85,enc_auto/46d532_fcfd16e5a37449b2a783573773f461ba~mv2.jpg');" data-caption="Germinal centres of lymphoid follicles as a response to antigenic stimulation constitute the so-called secondary or reactive lymphoid tissue."></div>
+	<div class="slide" style="background-image: url('https://image1.slideserve.com/3317241/gut-associated-lymphoid-tissue-galt-l.jpg');" data-caption="It is comprised of the:  Lymph nodes,  Spleen and  Gut-associated lymphoid tissue (GALT)."></div>
+	<div class="slide" style="background-image: url('https://www.shutterstock.com/image-vector/stages-lymphopoiesis-vector-lymphocyte-maturation-260nw-2394331627.jpg');" data-caption="Formation of lymphoid series cells"></div>
+	<div class="slide" style="background-image: url('https://img.sperohope.com/img/medicina/914/Leucopoyesis-proceso-factores-de-estimulacin-regulacin_2.jpg');" data-caption="REGULATION OF LEUCOPOIESIS: The cytokines which control the formation of different types of granulocytes are called colony stimulating factors (CSFs)."></div>
+	<div class="slide" style="background-image: url('https://stemcellthailand.org/wp-content/uploads/2014/09/Granulocyte-Colony-Stimulating-Factor-G-CSF-Stimulation.jpg');" data-caption="The CSFs are glycoproteins formed by monocytes and T lymphocytes."></div>
+	<div class="slide" style="background-image: url('https://proteopedia.org/wiki/images/f/f4/2nvh.gif');" data-caption="The cytokines that control lymphocyte formation are called interleukins, e.g. IL-I, IL-3, etc."></div>
+	<div class="slide" style="background-image: url('https://www.statnews.com/wp-content/uploads/2016/06/stem-cell-leaving-667x432.gif');" data-caption="The interleukins are formed by monocytes, macrophages and endothelial cells."></div>
+	<div class="slide" style="background-image: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGxkM2dpaDkwcHd3Y3lrN2o0OWs4OWMwbDhpMnVhNnAxbHFxd3Z0NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uNQewsA2qDmTscR3dN/giphy.gif');" data-caption="The polymorphonuclear neutrophils, commonly called polymorphs or neutrophils"></div>
+	<div class="slide" style="background-image: url('https://media.tenor.com/8vlsk5Tl3L0AAAAi/cell-neutrophil.gif');" data-caption="Nucleus of a mature neutrophil is purple in colour and multilobed (2–6 lobes); that is why a neutrophil is also called polymorphonuclear leucocytes."></div>
+	<div class="slide" style="background-image: url('https://media1.tenor.com/images/f28f43ed94eb48be39e6a2c62deefd9b/tenor.gif?itemid=16865536');" data-caption="The lobes of the nucleus are connected by the chromatin filaments, seen clearly through the cytoplasm."></div>
+	<div class="slide" style="background-image: url('https://media.sciencephoto.com/image/c0361232/800wm/C0361232-Neutrophil,_light_micrograph.jpg');" data-caption="Cytoplasm of neutrophil is pale bluish in colour and full of fine (pinpoint) granules."></div>
+	<div class="slide" style="background-image: url('https://cdn.britannica.com/08/130208-004-F67ADD7E/neutrophils-blood-cells-functions-chronic-granulomatous-disease.jpg');" data-caption="Granules take both acidic and basic stain, and look violet-pink in colour."></div>
+	<div class="slide" style="background-image: url('https://www.frontiersin.org/files/Articles/411381/fimmu-09-02171-HTML/image_m/fimmu-09-02171-g001.jpg');" data-caption="The neutrophils along with the monocytes constitute the first line of defence against the micro-organisms, viruses and other injurious agents that enter the body."></div>
+	<div class="slide" style="background-image: url('https://i.makeagif.com/media/9-06-2016/D7Xa-T.gif');" data-caption="Phagocytosis. The neutrophils engulf the foreign particles or bacteria, digest them and ultimately may kill them by a process called phagocytosis."></div>
+	<div class="slide" style="background-image: url('https://www.uni-muenster.de/imperia/md/images/Biologie.IMZ/hanley/fig_1a_animated_gif.gif');" data-caption="Margination, Emigration and diapedesis, Chemotaxis, Opsonization (attachment stage), Engulfment stage, Secretion (degranulation) stage, Killing or degradation stage."></div>
+	<div class="slide" style="background-image: url('https://th.bing.com/th/id/R.66d451c4bcd762d5d934255a241b889c?rik=fYLqYY6jQXsygw&pid=ImgRaw&r=0');" data-caption="Neutrophilia refers to increase in the circulating neutrophil counts (absolute count > 10,000/mm3)."></div>
+	<div class="slide" style="background-image: url('https://media1.tenor.com/m/JWLcFzBlLJUAAAAC/mothers-love-mom-and-baby.gif');" data-caption="Physiological causes of neutrophilia are Newborn babies, "></div>
+	<div class="slide" style="background-image: url('https://cdn.jefit.com/assets/img/exercises/gifs/476.gif');" data-caption="After exercise, After meals, Pregnancy, menstruation, parturition and lactation, Mental stress and emotional stress, After injection of epinephrine"></div>
+	<div class="slide" style="background-image: url('https://media.giphy.com/media/8lsNyZVWcpZ2o/200.gif');" data-caption="Pathological causes of neutrophilia are Acute pyogenic bacterial infections, Non-infective inflammatory conditions like gout, acute rheumatic fever"></div>
+	<div class="slide" style="background-image: url('https://telltaletv.com/wp-content/uploads/2019/01/gif-1-1.gif');" data-caption="Acute tissue destruction as in: – Burns – Postoperatively – Myocardial infarction"></div>
+	<div class="slide" style="background-image: url('https://images.ctfassets.net/uwf0n1j71a7j/7kP9dO4wQTrgkfk89XhBgI/3d6fa2b525b379e605a79cd5aa8d65b4/Shutterstock_1646271292__1_.png?w=3840&q=75');" data-caption="Decrease in the neutrophil count is known as neutropenia (absolute count < 2500/mm3)."></div>
+	<div class="slide" style="background-image: url('https://www.ge.com/news/sites/default/files/Reports/2020-03/tumblr_inline_n5vte9NuP21rpydpj.gif');" data-caption="Causes of neutropenia are Typhoid and paratyphoid fever, Malaria, Aplasia of bone marrow, Bone marrow depression."></div>
+	<div class="slide" style="background-image: url('https://tse3.mm.bing.net/th/id/OIP.bPlYM1IWHTAdVdL1WoNkmQHaE8?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="EOSINOPHILS: Nucleus is purple in colour and is bilobed in 85% of the cells. Cytoplasm is acidophilic and appears bright pink in colour."></div>
+	<div class="slide" style="background-image: url('https://media.sciencephoto.com/c0/36/12/54/c0361254-800px-wm.jpg');" data-caption="The granules contain histamine, lysosomal enzymes and eosinophil chemotactic factor of anaphylaxis (ECF-A)."></div>
+	<div class="slide" style="background-image: url('https://cdna.artstation.com/p/assets/images/images/056/197/546/large/mustafa-ttn-eosinophil-render.jpg?1668674919');" data-caption="FUNCTIONS OF EOSINOPHILS: Mild phagocytosis, Role in parasitic infestations, Role in allergic reaction, Role in immunity."></div>
+	<div class="slide" style="background-image: url('https://th.bing.com/th/id/R.d5d95cb7571b8264c89d580ca4e1aeba?rik=9x0%2f2yQHJO4FHw&riu=http%3a%2f%2fwww.scientificanimations.com%2fwp-content%2fuploads%2f2017%2f04%2f3D-Medical-Animation.gif&ehk=0UAnx2bqU%2fPekWi1NzJrS3clqmFPFcbBeN30QxwmuAc%3d&risl=1&pid=ImgRaw&r=0');" data-caption="Causes of eosinophilia are Allergic conditions like bronchial asthma and hay fever."></div>
+	<div class="slide" style="background-image: url('https://media.sciencephoto.com/image/f0325862/800wm/F0325862-Round_worms_in_human_intestine,_illustration.jpg');" data-caption="Parasitic infestation, e.g. intestinal worms like hookworm, roundworm and tapeworm."></div>
+	<div class="slide" style="background-image: url('https://111.wales.nhs.uk/assets/images/encyclopaedia/scarlet-fever-arm.JPG');" data-caption="Skin diseases like urticaria, Scarlet fever."></div>
+	<div class="slide" style="background-image: url('https://media1.giphy.com/media/3oz8xQoauYz5n5VrxK/giphy.gif');" data-caption="Causes of eosinopenia are Adrenocorticotrophic hormone (ACTH) and steroid therapy, Stressful conditions and Acute pyogenic infections."></div>
+	<div class="slide" style="background-image: url('https://tse3.mm.bing.net/th/id/OIP.whrybzAhFbZ4Hehz4-mjvQHaEc?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="BASOPHILS: Nucleus of basophils is irregular and its boundary is not clearly defined because of overcrowding with the coarse granules."></div>
+	<div class="slide" style="background-image: url('https://tse1.mm.bing.net/th/id/OIP.M5Ck08YnK1pX_9omp6jSCwAAAA?w=360&h=360&rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="The granules of basophils contain heparin, histamine and 5-HT."></div>
+	<div class="slide" style="background-image: url('https://tse1.mm.bing.net/th/id/OIP.gJoPr5rssrYFG795K2hvVAHaFk?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="FUNCTIONS: Mild phagocytosis, Role in allergic reaction, Role in preventing spread of allergic inflammatory process, Release of heparin."></div>
+	<div class="slide" style="background-image: url('https://o.quizlet.com/1v9yk2rblIe9K-IRhX8q3g.jpg');" data-caption="Causes of basophilia are Viral infections, e.g. influenza, small pox and chicken pox, Allergic diseases and Chronic myeloid leukaemia."></div>
+	<div class="slide" style="background-image: url('https://tse3.mm.bing.net/th/id/OIP.-ojCSnmJjl2G6U1-GuvBBwHaE0?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="Causes of basopenia are Corticosteroid therapy, Drug-induced reactions and Acute pyogenic infections."></div>
+	<div class="slide" style="background-image: url('https://tse4.mm.bing.net/th/id/OIP.3pBboQcC08wt0o-cUIYPJgHaGF?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="Mast cells are large tissue cells resembling the basophils. These are present in bone marrow and immediately outside the capillaries in the skin."></div>
+	<div class="slide" style="background-image: url('https://tse3.mm.bing.net/th/id/OIP.ZwzOq0jI6Vx546H6yduSYQHaE8?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="These do not enter the blood circulation. Functions. Mast cells play role in the allergic reactions similar to the basophils."></div>
+	<div class="slide" style="background-image: url('https://tse3.mm.bing.net/th/id/OIP.KgHbN2ijmNKarEOC__IxlgHaDt?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="Lymphocytes have a large, round, single nucleus, which almost completely fills the cell."></div>
+	<div class="slide" style="background-image: url('https://tse3.mm.bing.net/th/id/OIP.V1pEWIVAkoFyFUT-MxNjhwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="It stains blue very deeply giving ink-spot appearance. Nuclear chromatin is coarsely clumped and shapeless."></div>
+	<div class="slide" style="background-image: url('https://tse1.mm.bing.net/th/id/OIP._4DyOLQ3YWT19hi4iFVuVAHaCu?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="The cytoplasm is scanty, i.e. its amount is always less than that of the nucleus."></div>
+	<div class="slide" style="background-image: url('https://tse3.mm.bing.net/th/id/OIP.23ZTmzhHKaXGYA0Ix-kuQwHaGY?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="Based on their developmental background, life span and functions, the small lymphocytes have been broadly classified into three subtypes."></div>
+	<div class="slide" style="background-image: url('https://tse2.mm.bing.net/th/id/OIP.CCTLOVudcri_EYSMXfCNhgAAAA?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="B lymphocytes which are processed in the bone marrow and concerned with the humoral immunity."></div>
+	<div class="slide" style="background-image: url('https://th.bing.com/th/id/R.9985b8b3a045d811d96bca0be495fbb1?rik=NX0IvxfJgl3EZA&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2feiM%2fpnz%2feiMpnzz6T.png&ehk=IRDHapRrfsrup%2fGgXmCj28lU712a3Suh%2bSeBlLrU9k8%3d&risl=&pid=ImgRaw&r=0');" data-caption="T lymphocytes which are processed in the thymus and concerned with cellular immunity."></div>
+	<div class="slide" style="background-image: url('https://tse3.mm.bing.net/th/id/OIP.STpkO-s2oPPMGLzKVWSJfgHaEn?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="Natural killer (NK) cells are lymphocyte-like cells that non-specifically kill any cell that is coated with immunoglobulin IgG."></div>
+	<div class="slide" style="background-image: url('https://www.bioworld.com/ext/resources/BW-source/2020/Nov-2020/Affimed-immune-cell-engager-illustration-11-10.png');" data-caption="This phenomenon is called antigen-dependent cell-mediated cytotoxicity (ADCC). Thus NK cells provide innate immunity. The NK cells lack identifying surface markers."></div>
+	<div class="slide" style="background-image: url('https://th.bing.com/th/id/R.9127dc66a7e7b9998f74f9bdf4a8463c?rik=VpH9nx%2fCqAyViQ&riu=http%3a%2f%2fwww.dynamicscience.com.au%2ftester%2fsolutions1%2fbiology%2fantibdy.gif&ehk=kvBxZYXp641HxIuyOT4jSP55N0TuVgp0ujxljhwfu0o%3d&risl=&pid=ImgRaw&r=0');" data-caption="Lymphocytes play an important role in immunity."></div>
+	<div class="slide" style="background-image: url('https://tse3.mm.bing.net/th/id/OIP.0THbQZa7k3rjNB0PFLZGigHaFk?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="Physiological causes of lymphocytosis are In healthy infants and young children, and In females, during menstruation."></div>
+	<div class="slide" style="background-image: url('https://tse4.mm.bing.net/th/id/OIP.Ff_n9kKeGMi3FNC0CFsZfgHaG8?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="Pathological causes of lymphocytosis are Chronic infections like tuberculosis, hepatitis and whooping cough,"></div>
+	<div class="slide" style="background-image: url('https://tse1.explicit.bing.net/th/id/OIP.SNE6n0uMgvpHrf6eOsdQBQHaER?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="Viral infections like chicken pox, Autoimmune diseases like thyrotoxicosis, Infectious mononucleosis and"></div>
+	<div class="slide" style="background-image: url('https://th.bing.com/th/id/R.5c19c335d28adde8288ad585815fbda1?rik=NgaW6ou9tmUVNQ&riu=http%3a%2f%2fimagebank.hematology.org%2fgetimagebyid%2f2045%3fsize%3d3&ehk=431OR76LsxPwb9xv5irP6jT1JhRroEoYtmfR7IgEl8c%3d&risl=&pid=ImgRaw&r=0');" data-caption="Lymphatic leukaemia (most common cause of lymphocytes > 10,000/mm3)."></div>
+	<div class="slide" style="background-image: url('https://www.aaaai.org/Aaaai/media/MediaLibraryRedesign/Conditions%20Treatments/Related%20Conditions/Pills-Pile-76038257-cropped.jpg');" data-caption="Causes of lymphopenia are Patients on corticosteroid and immunosuppressive therapy, Hypoplastic bone marrow,"></div>
+	<div class="slide" style="background-image: url('https://i.gifer.com/origin/6c/6cd1f29f7cad4f2ef17c03363de90fff_w200.gif');" data-caption="Widespread irradiation and Acquired immunodeficiency syndrome."></div>
+	<div class="slide" style="background-image: url('https://tse3.mm.bing.net/th/id/OIP.J2iqK_1uJc2vxHr2m7Z07wHaFZ?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="MONOCYTES: The nucleus of a monocyte is large, single and eccentric in position, i.e. present on one side of the cell. It may be notched or indented, i.e. horseshoe or kidney shaped."></div>
+	<div class="slide" style="background-image: url('https://media.sciencephoto.com/image/c0222165/800wm/C0222165-Monocyte.jpg');" data-caption="The cytoplasm is abundant, pale blue and usually clear (no granules);"></div>
+	<div class="slide" style="background-image: url('https://o.quizlet.com/HvRkP65k2Eku30.72kPRug.jpg' data-caption="FUNCTIONS: phagocytosis, Role in tumour immunity, Synthesis of biological substances."></div>
+	<div class="slide" style="background-image: url('https://tse2.mm.bing.net/th/id/OIP.wLUDbRHGscCqarxRkKRQSQAAAA?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="Causes of monocytosis are Certain bacterial infections such as tuberculosis, syphilis and subacute bacterial endocarditis."></div>
+	<div class="slide" style="background-image: url('https://tse2.mm.bing.net/th/id/OIP.09pyuadk3qfm0Z2I9fkpnwHaD4?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="Infectious mononucleosis or the so-called glandular fever, Viral infections, Protozoal and rickettsial infections, e.g. malaria and kala-azar."></div>
+	<div class="slide" style="background-image: url('https://tse2.mm.bing.net/th/id/OIP.DVhq2wLNPSsHadrZ0D0KkAHaFj?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="Monocytopenia is rare. It may be seen in the hypoplastic bone marrow."></div>
+	<div class="slide" style="background-image: url('https://tse2.mm.bing.net/th/id/OIP.FDE67P6zzVyP6M9QUC9jegHaE8?rs=1&pid=ImgDetMain&o=7&rm=3');" data-caption="Leukaemias constitute a group of malignant diseases of the blood in which there occurs an increase in the total WBC count associated with presence of immature WBCs in the peripheral blood."></div>
+	<div class="slide" style="background-image: url('https://th.bing.com/th/id/R.662818a75c480f5ad1ca79f3d27b75c5?rik=lms5H9ro9Cps2w&pid=ImgRaw&r=0');" data-caption="The total WBC count is usually above 50,000/mm3 and may be as high as 1,00,000– 3,00,000/mm3."></div>
+	<div class="slide" style="background-image: url('https://images.ctfassets.net/uwf0n1j71a7j/1QMLFNz119Gz6FQThCsBW2/1daa7c9d483039ca6e2cbdf1e643fc20/leukaemia-cancer.png?w=1920&q=75');" data-caption="Types of leukaemias: Acute myeloblastic leukaemia (AML), Acute lymphoblastic leukaemia (ALL), Chronic myeloid leukaemia (CML) and Chronic lymphoid leukaemia (CLL)."></div>
+	<div class="slide" style="background-image: url('https://th.bing.com/th/id/R.88540dd78add87107c9f9f52a168f5c0?rik=SSNBzVTSh%2fkYiQ&pid=ImgRaw&r=0');" data-caption="Thank You for Watching!"></div>
+    <div class="caption" id="caption">Welcome to the Demo</div>
+  </div>
+
+  <div class="controls">
+    <button id="prev">◀ Prev</button>
+    <button id="next">Next ▶</button>
+    <button id="mute">🔊</button>
+    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
+    <span id="volPercent">50%</span>
+    <button id="export">Export Transcript</button>
+  </div>
+
+  <audio id="bgMusic" src="audio/background.mp3" loop></audio>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const caption = document.getElementById('caption');
+    const bgMusic = document.getElementById('bgMusic');
+    const volumeSlider = document.getElementById('volume');
+    const volPercent = document.getElementById('volPercent');
+    const muteBtn = document.getElementById('mute');
+    const exportBtn = document.getElementById('export');
+    let current = 0;
+    let muted = false;
+
+    bgMusic.volume = 0.5;
+    bgMusic.play();
+
+    function showSlide(index) {
+      slides.forEach((s, i) => {
+        s.classList.remove('active');
+        if (i === index) {
+          s.classList.add('active');
+          caption.style.opacity = 0;
+          setTimeout(() => {
+            caption.textContent = s.dataset.caption;
+            caption.style.opacity = 1;
+          }, 500);
+        }
+      });
+    }
+
+    document.getElementById('next').onclick = () => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    };
+    document.getElementById('prev').onclick = () => {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    };
+
+    volumeSlider.oninput = () => {
+      bgMusic.volume = volumeSlider.value;
+      volPercent.textContent = Math.round(volumeSlider.value * 100) + '%';
+    };
+
+    muteBtn.onclick = () => {
+      muted = !muted;
+      bgMusic.muted = muted;
+      muteBtn.textContent = muted ? '🔇' : '🔊';
+    };
+
+    exportBtn.onclick = () => {
+      const transcript = Array.from(slides).map(s => s.dataset.caption).join('\n');
+      const blob = new Blob([transcript], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'transcript.txt';
+      link.click();
+    };
+  </script>
+</body>
+</html>
